@@ -22,11 +22,30 @@ class CustomButtonA extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           )),
-      onTap: (){
+      onTap: () {
         Navigator.pushNamed(context, destination);
-
-
       },
     );
+  }
+}
+
+class CustomBackground extends StatelessWidget {
+  const CustomBackground({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('assets/ph.jpg'),
+          fit: BoxFit.cover,
+        )),
+        child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(begin: Alignment.bottomLeft, colors: [
+          Colors.black.withOpacity(.9),
+          Colors.black.withOpacity(0),
+        ]))));
   }
 }
