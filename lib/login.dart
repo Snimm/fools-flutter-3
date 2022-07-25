@@ -10,32 +10,75 @@ class Login extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Wrapper(
-        body: Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Welcome',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 32, color: Colors.white),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          CustomText(
-            onChanged: (String value) {},
-            hintText: 'Email',
-            icon: Icons.person,
-          ),
-          CustonPass(OnChanged: (String value) {  },),
-          SizedBox(height: 20,),
-          CustomButtonA(inputText: 'Login', destination: 'shop_home')
-
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Center(
+              // Center is not enough to center vertically in the container
+              child: Text(
+                'Welcome back',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                    color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            CustomText(
+              onChanged: (String value) {},
+              hintText: 'Username',
+              icon: Icons.person,
+            ),
+            CustonPass(hintText: 'password',
+              OnChanged: (String value) {},
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            CustomButtonA(inputText: 'Login', destination: 'shop_home'),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'Register');
+                  },
+                  child: Text(
+                    'sign up',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                  width: 50,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'Register');
+                  },
+                  child: Text(
+                    'forgot password',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
-
-

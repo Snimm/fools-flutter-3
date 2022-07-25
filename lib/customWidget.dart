@@ -92,6 +92,7 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomTextContainer(
         child: TextField(
+
       onChanged: onChanged,
       decoration: InputDecoration(
         icon: Icon(
@@ -107,10 +108,11 @@ class CustomText extends StatelessWidget {
 
 class CustonPass extends StatelessWidget {
   final ValueChanged<String> OnChanged;
+  final String hintText;
 
   const CustonPass({
     Key? key,
-    required this.OnChanged,
+    required this.OnChanged, required this.hintText,
   }) : super(key: key);
 
   @override
@@ -120,7 +122,7 @@ class CustonPass extends StatelessWidget {
       obscureText: true,
       onChanged: OnChanged,
       decoration: InputDecoration(
-        hintText: "Passsword",
+        hintText: hintText,
         border: InputBorder.none,
         icon: Icon(
           Icons.lock,

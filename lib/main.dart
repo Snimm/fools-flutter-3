@@ -12,7 +12,7 @@ void main() => runApp(MaterialApp(
         'HomePage': (context) => const HomePage(),
         'login': (context) => const Login(),
         'Register': (context) => const MyRegister(),
-        'Shop_home': (context) => const shop_home()
+        'shop_home': (context) => const shop_home()
       },
     ));
 
