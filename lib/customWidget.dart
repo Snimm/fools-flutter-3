@@ -35,17 +35,102 @@ class CustomBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage('assets/ph.jpg'),
+        fit: BoxFit.cover,
+      )),
+      child: Container(
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage('assets/ph.jpg'),
-          fit: BoxFit.cover,
-        )),
-        child: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.bottomLeft, colors: [
-          Colors.black.withOpacity(.9),
-          Colors.black.withOpacity(0),
-        ]))));
+          gradient: LinearGradient(begin: Alignment.bottomLeft, colors: [
+            Colors.black.withOpacity(.9),
+            Colors.black.withOpacity(0),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomTextContainer extends StatelessWidget {
+  final Widget child;
+
+  const CustomTextContainer({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      width: size.width * .8,
+      height: size.height * .05,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: child,
+    );
+    ;
+  }
+}
+
+class CustomText extends StatelessWidget {
+  final String hintText;
+  final IconData icon;
+  final ValueChanged<String> onChanged;
+
+  const CustomText({
+    Key? key,
+    required this.hintText,
+    required this.icon,
+    required this.onChanged,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextContainer(
+        child: TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        icon: Icon(
+          icon,
+          color: Colors.black,
+        ),
+        hintText: hintText,
+        border: InputBorder.none,
+      ),
+    ));
+  }
+}
+
+class CustonPass extends StatelessWidget {
+  final ValueChanged<String> OnChanged;
+
+  const CustonPass({
+    Key? key,
+    required this.OnChanged,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextContainer(
+        child: TextField(
+      obscureText: true,
+      onChanged: OnChanged,
+      decoration: InputDecoration(
+        hintText: "Passsword",
+        border: InputBorder.none,
+        icon: Icon(
+          Icons.lock,
+          color: Colors.black,
+        ),
+        suffixIcon: Icon(
+          Icons.visibility,
+          color: Colors.black,
+        ),
+      ),
+    ));
   }
 }

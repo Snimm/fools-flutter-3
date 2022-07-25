@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled2/customWidget.dart';
 import 'package:untitled2/login.dart';
 import 'package:untitled2/register.dart';
+import 'package:untitled2/shop_home.dart';
 import 'package:untitled2/utilities/wrapper.dart';
 
 void main() => runApp(MaterialApp(
@@ -11,6 +12,7 @@ void main() => runApp(MaterialApp(
         'HomePage': (context) => const HomePage(),
         'login': (context) => const Login(),
         'Register': (context) => const MyRegister(),
+        'Shop_home': (context) => const shop_home()
       },
     ));
 
