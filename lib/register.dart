@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/customWidget.dart';
-import 'package:untitled2/utilities/wrapper.dart';
+
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:untitled2/constants.dart';
+import 'package:untitled2/shop_home.dart';
+import 'package:untitled2/size_config.dart';
 class CustomButtonA extends StatelessWidget {
   final String inputText;
   final String destination;
@@ -13,13 +15,14 @@ class CustomButtonA extends StatelessWidget {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: kPrimaryLightColor,
             borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
             child: Text(
               inputText,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: kTextColor),
             ),
           )),
       onTap: () {
@@ -67,7 +70,7 @@ class CustomTextContainer extends StatelessWidget {
       width: size.width * .8,
       height: size.height * .05,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: kPrimaryLightColor,
         borderRadius: BorderRadius.circular(30),
       ),
       child: child,
@@ -97,7 +100,7 @@ class CustomText extends StatelessWidget {
       decoration: InputDecoration(
         icon: Icon(
           icon,
-          color: Colors.black,
+          color: kSecondaryColor,
         ),
         hintText: hintText,
         border: InputBorder.none,
@@ -126,13 +129,76 @@ class CustonPass extends StatelessWidget {
         border: InputBorder.none,
         icon: Icon(
           Icons.lock,
-          color: Colors.black,
+          color: kSecondaryColor,
         ),
         suffixIcon: Icon(
           Icons.visibility,
-          color: Colors.black,
+          color: kSecondaryColor,
         ),
       ),
     ));
+  }
+}
+
+class Wrapper extends StatelessWidget {
+  final Widget body;
+
+  const Wrapper({required this.body});
+
+  @override
+  Scaffold build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/ph.jpg'),
+                fit: BoxFit.cover,
+              )),
+          child: Container(
+              decoration: BoxDecoration(
+                  gradient:
+                  LinearGradient(begin: Alignment.bottomLeft, colors: [
+                    Colors.black.withOpacity(.9),
+                    Colors.black.withOpacity(0),
+                  ])),
+              child: body)),
+    );
+  }
+}
+
+class SplashContent extends StatelessWidget {
+  const SplashContent({
+    Key? key,
+    this.text,
+    this.image,
+  }) : super(key: key);
+  final String? text, image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Spacer(),
+        Text(
+          "Name Pending",
+          style: TextStyle(
+            fontSize: getProportionateScreenWidth(36),
+            color: kPrimaryColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          text!,
+          textAlign: TextAlign.center,
+        ),
+        Spacer(flex: 2),
+        Image.asset(
+          image!,
+          height: getProportionateScreenHeight(265),
+          width: getProportionateScreenWidth(235),
+        ),
+      ],
+    );
   }
 }
