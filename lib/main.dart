@@ -9,6 +9,15 @@ import 'package:untitled2/size_config.dart';
 void main() => runApp(MaterialApp(
       title: 'home page',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+            //App bar theme not working properly
+          ),
+          toolbarTextStyle: TextStyle(color: Colors.blue,),
+        ),
         textTheme: TextTheme(
           bodyText1: TextStyle(color: kTextColor),
           bodyText2: TextStyle(color: kTextColor),
@@ -35,18 +44,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
-    {"text": "Welcome , Let’s shop & Sell!", "image": "assets/ph.jpg"},
+    {"text": "Welcome , Let’s shop & Sell!",
+      "image": "assets/milkCartoon.webp"},
     {
       "text": "We help people conect with store \naround India",
-      "image": "assets/ph.jpg"
+      "image": "assets/cheese.webp"
     },
     {
       "text": "We show the easy way to shop. \nJust stay at home",
-      "image": "assets/ph.jpg"
+      "image": "assets/icecream.webp"
     },
     {
       "text": "We show the easy way to sell. \nJust stay at home ",
-      "image": "assets/ph.jpg"
+      "image": "assets/cow.webp"
     },
   ];
 
@@ -83,7 +93,9 @@ class _HomePageState extends State<HomePage> {
                         horizontal: getProportionateScreenWidth(20)),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: List.generate(
@@ -91,7 +103,9 @@ class _HomePageState extends State<HomePage> {
                             (index) => buildDot(index: index),
                           ),
                         ),
-                          Spacer(flex: 2,),
+                        Spacer(
+                          flex: 2,
+                        ),
                         Text(
                           'Choose your language',
                           textAlign: TextAlign.left,
@@ -120,16 +134,18 @@ class _HomePageState extends State<HomePage> {
                                 destination: 'Register',
                               ),
                             ),
-
                           ],
                         ),
-                        Spacer(flex: 1,),
+                        Spacer(
+                          flex: 1,
+                        ),
                       ],
                     ),
                   ),
                 ),
               ]),
         ),
+        title: 'Welcome',
       ),
     );
   }

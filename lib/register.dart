@@ -33,37 +33,37 @@ class _MyRegisterState extends State<MyRegister> {
             ),
             CustomText(
               onChanged: (String value) {},
-              hintText: 'Username',
-              icon: Icons.person,
+              hintText: 'SayMyName',
+              icon: Icons.person, label: 'Username',
             ),
 
             CustomText(
               onChanged: (String value) {},
-              hintText: 'Mobile number',
-              icon: Icons.phone_android,
+              hintText: '394783743344',
+              icon: Icons.phone_android, label: 'Mobile number',
             ),
 
             CustomText(
               onChanged: (String value) {},
-              hintText: 'email',
-              icon: Icons.mail,
+              hintText: 'example@gmail.com',
+              icon: Icons.mail, label: 'Email',
             ),
 
             CustomText(
               onChanged: (String value) {},
               hintText: 'vacant',
-              icon: Icons.person,
+              icon: Icons.person, label: 'vacant',
             ),
             CustomText(
               onChanged: (String value) {},
               hintText: 'vacant',
-              icon: Icons.person,
+              icon: Icons.person, label: 'vacant',
             ),
             CustonPass(hintText: 'Password',
-              OnChanged: (String value) {},
+              OnChanged: (String value) {}, label: 'Password',
             ),
             CustonPass(hintText: 'retype password',
-              OnChanged: (String value) {}
+              OnChanged: (String value) {}, label: 'Retype password',
             ),
             SizedBox(
               height: 30,
@@ -93,7 +93,7 @@ class _MyRegisterState extends State<MyRegister> {
             )
           ],
         ),
-      ),
+      ), title: 'Register',
     );
   }
 }

@@ -83,12 +83,13 @@ class CustomText extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final ValueChanged<String> onChanged;
+  final String label;
 
   const CustomText({
     Key? key,
     required this.hintText,
     required this.icon,
-    required this.onChanged,
+    required this.onChanged, required this.label,
   }) : super(key: key);
 
   @override
@@ -97,7 +98,7 @@ class CustomText extends StatelessWidget {
         child: TextField(
 
       onChanged: onChanged,
-      decoration: InputDecoration(
+      decoration: InputDecoration(labelText: label,
         icon: Icon(
           icon,
           color: kSecondaryColor,
@@ -112,19 +113,21 @@ class CustomText extends StatelessWidget {
 class CustonPass extends StatelessWidget {
   final ValueChanged<String> OnChanged;
   final String hintText;
+  final String label;
 
   const CustonPass({
     Key? key,
-    required this.OnChanged, required this.hintText,
+    required this.OnChanged, required this.hintText, required this.label,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextContainer(
-        child: TextField(
+        child: TextFormField(
+
       obscureText: true,
       onChanged: OnChanged,
-      decoration: InputDecoration(
+      decoration: InputDecoration(labelText: label,
         hintText: hintText,
         border: InputBorder.none,
         icon: Icon(
@@ -142,12 +145,16 @@ class CustonPass extends StatelessWidget {
 
 class Wrapper extends StatelessWidget {
   final Widget body;
+  final String title;
 
-  const Wrapper({required this.body});
+  const Wrapper({required this.body, required this.title});
 
   @override
   Scaffold build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
       body: Container(
           width: double.infinity,
           decoration: BoxDecoration(
@@ -184,7 +191,7 @@ class SplashContent extends StatelessWidget {
           "Name Pending",
           style: TextStyle(
             fontSize: getProportionateScreenWidth(36),
-            color: kPrimaryColor,
+            color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),

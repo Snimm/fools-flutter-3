@@ -31,10 +31,10 @@ class Login extends StatelessWidget {
             CustomText(
               onChanged: (String value) {},
               hintText: 'Username',
-              icon: Icons.person,
+              icon: Icons.person, label:'Username''',
             ),
             CustonPass(hintText: 'password',
-              OnChanged: (String value) {},
+              OnChanged: (String value) {}, label: 'Password',
             ),
             SizedBox(
               height: 30,
@@ -78,7 +78,7 @@ class Login extends StatelessWidget {
             )
           ],
         ),
-      ),
+      ), title: 'Login',
     );
   }
 }
