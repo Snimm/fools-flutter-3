@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:untitled2/customWidget.dart';
 
-const kPrimaryColor = Colors.white;
-const kPrimaryLightColor = Colors.white;
+const kPrimaryColor = Colors.blue;
+const kPrimaryLightColor = Colors.lightBlueAccent;
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,

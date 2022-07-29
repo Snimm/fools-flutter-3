@@ -15,7 +15,7 @@ class CustomButtonA extends StatelessWidget {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: kPrimaryLightColor,
+            color: Colors.white,
             borderRadius: BorderRadius.circular(50),
           ),
           child: Center(
@@ -70,7 +70,7 @@ class CustomTextContainer extends StatelessWidget {
       width: size.width * .8,
       height: size.height * .05,
       decoration: BoxDecoration(
-        color: kPrimaryLightColor,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(30),
       ),
       child: child,
@@ -101,7 +101,7 @@ class CustomText extends StatelessWidget {
       decoration: InputDecoration(labelText: label,
         icon: Icon(
           icon,
-          color: kSecondaryColor,
+          color: Colors.black,
         ),
         hintText: hintText,
         border: InputBorder.none,
@@ -132,11 +132,11 @@ class CustonPass extends StatelessWidget {
         border: InputBorder.none,
         icon: Icon(
           Icons.lock,
-          color: kSecondaryColor,
+          color: Colors.black,
         ),
         suffixIcon: Icon(
           Icons.visibility,
-          color: kSecondaryColor,
+          color: Colors.black,
         ),
       ),
     ));

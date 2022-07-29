@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                           'Choose your language',
                           textAlign: TextAlign.left,
                           style: TextStyle(
-                              color: kPrimaryColor,
+                              color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.w100),
                         ),
