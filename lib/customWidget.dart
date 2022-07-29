@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled2/constants.dart';
 import 'package:untitled2/shop_home.dart';
 import 'package:untitled2/size_config.dart';
+
 class CustomButtonA extends StatelessWidget {
   final String inputText;
   final String destination;
@@ -21,8 +22,8 @@ class CustomButtonA extends StatelessWidget {
           child: Center(
             child: Text(
               inputText,
-
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: kTextColor),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 20, color: kTextColor),
             ),
           )),
       onTap: () {
@@ -89,16 +90,17 @@ class CustomText extends StatelessWidget {
     Key? key,
     required this.hintText,
     required this.icon,
-    required this.onChanged, required this.label,
+    required this.onChanged,
+    required this.label,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextContainer(
         child: TextField(
-
       onChanged: onChanged,
-      decoration: InputDecoration(labelText: label,
+      decoration: InputDecoration(
+        labelText: label,
         icon: Icon(
           icon,
           color: Colors.black,
@@ -110,24 +112,31 @@ class CustomText extends StatelessWidget {
   }
 }
 
-class CustonPass extends StatelessWidget {
+/*class CustonPass extends StatefulWidget {
   final ValueChanged<String> OnChanged;
   final String hintText;
   final String label;
 
   const CustonPass({
     Key? key,
-    required this.OnChanged, required this.hintText, required this.label,
+    required this.OnChanged,
+    required this.hintText,
+    required this.label,
   }) : super(key: key);
+
+  @override
+  void initState() {
+    bool _passwordVisible = false;
+  }
 
   @override
   Widget build(BuildContext context) {
     return CustomTextContainer(
         child: TextFormField(
-
-      obscureText: true,
+      obscureText: !_passwordVisible,
       onChanged: OnChanged,
-      decoration: InputDecoration(labelText: label,
+      decoration: InputDecoration(
+        labelText: label,
         hintText: hintText,
         border: InputBorder.none,
         icon: Icon(
@@ -140,8 +149,9 @@ class CustonPass extends StatelessWidget {
         ),
       ),
     ));
-  }
-}
+  }*/
+
+
 
 class Wrapper extends StatelessWidget {
   final Widget body;
@@ -159,16 +169,16 @@ class Wrapper extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/ph.jpg'),
-                fit: BoxFit.cover,
-              )),
+            image: AssetImage('assets/ph.jpg'),
+            fit: BoxFit.cover,
+          )),
           child: Container(
               decoration: BoxDecoration(
                   gradient:
-                  LinearGradient(begin: Alignment.bottomLeft, colors: [
-                    Colors.black.withOpacity(.9),
-                    Colors.black.withOpacity(0),
-                  ])),
+                      LinearGradient(begin: Alignment.bottomLeft, colors: [
+                Colors.black.withOpacity(.9),
+                Colors.black.withOpacity(0),
+              ])),
               child: body)),
     );
   }
@@ -207,5 +217,59 @@ class SplashContent extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class CustomPassA extends StatefulWidget {
+  final ValueChanged<String> OnChanged;
+  final String hintText;
+  final String label;
+
+  const CustomPassA(
+      {Key? key,
+      required this.OnChanged,
+      required this.hintText,
+      required this.label})
+      : super(key: key);
+
+  @override
+  State<CustomPassA> createState() => _CustomPassAState();
+}
+
+class _CustomPassAState extends State<CustomPassA> {
+  bool _passwordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _passwordVisible = false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomTextContainer(
+        child: TextFormField(
+      obscureText: !_passwordVisible,
+      onChanged: widget.OnChanged,
+      decoration: InputDecoration(
+        labelText: widget.label,
+        hintText: widget.hintText,
+        border: InputBorder.none,
+        icon: Icon(
+          Icons.lock,
+          color: Colors.black,
+        ),
+        suffixIcon: IconButton(
+          icon: Icon(
+            Icons.visibility,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            setState(() {_passwordVisible = !_passwordVisible;});
+          },
+        ),
+      ),
+    ));
+    ;
   }
 }

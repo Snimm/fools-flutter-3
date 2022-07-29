@@ -59,10 +59,10 @@ class _MyRegisterState extends State<MyRegister> {
               hintText: 'vacant',
               icon: Icons.person, label: 'vacant',
             ),
-            CustonPass(hintText: 'Password',
+            CustomPassA(hintText: 'Password',
               OnChanged: (String value) {}, label: 'Password',
             ),
-            CustonPass(hintText: 'retype password',
+            CustomPassA(hintText: 'retype password',
               OnChanged: (String value) {}, label: 'Retype password',
             ),
             SizedBox(

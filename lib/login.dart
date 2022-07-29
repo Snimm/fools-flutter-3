@@ -33,7 +33,7 @@ class Login extends StatelessWidget {
               hintText: 'Username',
               icon: Icons.person, label:'Username''',
             ),
-            CustonPass(hintText: 'password',
+            CustomPassA(hintText: 'password',
               OnChanged: (String value) {}, label: 'Password',
             ),
             SizedBox(
