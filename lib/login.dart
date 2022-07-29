@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:untitled2/customWidget.dart';
+import 'package:untitled2/size_config.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class Login extends StatelessWidget {
             CustomText(
               onChanged: (String value) {},
               hintText: 'Username',
-              icon: Icons.person, label:'Username''',
+              icon: Icons.person, label:'Username''', InputType: TextInputType.name,
             ),
             CustomPassA(hintText: 'password',
               OnChanged: (String value) {}, label: 'Password',
@@ -75,7 +76,25 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(height: SizeConfig.screenHeight * 0.08),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SocalCard(
+                  icon: "assets/icons/google-icon.svg",
+                  press: () {},
+                ),
+                SocalCard(
+                  icon: "assets/icons/facebook-2.svg",
+                  press: () {},
+                ),
+                SocalCard(
+                  icon: "assets/icons/twitter.svg",
+                  press: () {},
+                ),
+              ],
+            ),
           ],
         ),
       ), title: 'Login',

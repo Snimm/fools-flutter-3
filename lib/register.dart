@@ -34,30 +34,30 @@ class _MyRegisterState extends State<MyRegister> {
             CustomText(
               onChanged: (String value) {},
               hintText: 'SayMyName',
-              icon: Icons.person, label: 'Username',
+              icon: Icons.person, label: 'Username', InputType: TextInputType.name,
             ),
 
             CustomText(
               onChanged: (String value) {},
               hintText: '394783743344',
-              icon: Icons.phone_android, label: 'Mobile number',
+              icon: Icons.phone_android, label: 'Mobile number', InputType: TextInputType.phone,
             ),
 
             CustomText(
               onChanged: (String value) {},
               hintText: 'example@gmail.com',
-              icon: Icons.mail, label: 'Email',
+              icon: Icons.mail, label: 'Email', InputType: TextInputType.emailAddress,
             ),
 
             CustomText(
               onChanged: (String value) {},
               hintText: 'vacant',
-              icon: Icons.person, label: 'vacant',
+              icon: Icons.person, label: 'vacant', InputType: TextInputType.streetAddress,
             ),
             CustomText(
               onChanged: (String value) {},
               hintText: 'vacant',
-              icon: Icons.person, label: 'vacant',
+              icon: Icons.person, label: 'vacant', InputType: TextInputType.visiblePassword,
             ),
             CustomPassA(hintText: 'Password',
               OnChanged: (String value) {}, label: 'Password',

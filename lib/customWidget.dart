@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:untitled2/constants.dart';
 import 'package:untitled2/shop_home.dart';
 import 'package:untitled2/size_config.dart';
@@ -85,6 +86,7 @@ class CustomText extends StatelessWidget {
   final IconData icon;
   final ValueChanged<String> onChanged;
   final String label;
+  final TextInputType InputType;
 
   const CustomText({
     Key? key,
@@ -92,14 +94,17 @@ class CustomText extends StatelessWidget {
     required this.icon,
     required this.onChanged,
     required this.label,
+    required this.InputType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomTextContainer(
-        child: TextField(
+        child: TextFormField(
+      keyboardType: InputType,
       onChanged: onChanged,
-      decoration: InputDecoration(
+      decoration: InputDecoration(floatingLabelAlignment: FloatingLabelAlignment.start,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
         labelText: label,
         icon: Icon(
           icon,
@@ -150,8 +155,6 @@ class CustomText extends StatelessWidget {
       ),
     ));
   }*/
-
-
 
 class Wrapper extends StatelessWidget {
   final Widget body;
@@ -252,6 +255,8 @@ class _CustomPassAState extends State<CustomPassA> {
       obscureText: !_passwordVisible,
       onChanged: widget.OnChanged,
       decoration: InputDecoration(
+        floatingLabelAlignment: FloatingLabelAlignment.start,
+        floatingLabelBehavior: FloatingLabelBehavior.always,
         labelText: widget.label,
         hintText: widget.hintText,
         border: InputBorder.none,
@@ -265,11 +270,42 @@ class _CustomPassAState extends State<CustomPassA> {
             color: Colors.black,
           ),
           onPressed: () {
-            setState(() {_passwordVisible = !_passwordVisible;});
+            setState(() {
+              _passwordVisible = !_passwordVisible;
+            });
           },
         ),
       ),
     ));
     ;
+  }
+}
+class SocalCard extends StatelessWidget {
+  const SocalCard({
+    Key? key,
+    this.icon,
+    this.press,
+  }) : super(key: key);
+
+  final String? icon;
+  final Function? press;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: press as void Function()?,
+      child: Container(
+        margin:
+        EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10)),
+        padding: EdgeInsets.all(getProportionateScreenWidth(12)),
+        height: getProportionateScreenHeight(40),
+        width: getProportionateScreenWidth(40),
+        decoration: BoxDecoration(
+          color: Color(0xFFF5F6F9),
+          shape: BoxShape.circle,
+        ),
+        child: SvgPicture.asset(icon!),
+      ),
+    );
   }
 }
