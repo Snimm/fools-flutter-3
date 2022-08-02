@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:untitled2/Screen/base/Screen.dart';
 import 'package:untitled2/constants.dart';
 import 'package:untitled2/customWidget.dart';
 import 'package:untitled2/login.dart';
 import 'package:untitled2/register.dart';
 import 'package:untitled2/shop_home.dart';
 import 'package:untitled2/size_config.dart';
-
+import 'package:untitled2/Screen/base/Screen.dart';
 void main() => runApp(MaterialApp(
       title: 'home page',
       theme: ThemeData(
@@ -30,7 +31,8 @@ void main() => runApp(MaterialApp(
         'HomePage': (context) => const HomePage(),
         'login': (context) => const Login(),
         'Register': (context) => const MyRegister(),
-        'shop_home': (context) => const shop_home()
+        'shop_home': (context) => const shop_home(),
+        'base': (context) => const Consumer_base(),
       },
     ));
 
@@ -131,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                             Expanded(
                               child: CustomButtonA(
                                 inputText: 'Hindi',
-                                destination: 'Register',
+                                destination: 'base',
                               ),
                             ),
                           ],
